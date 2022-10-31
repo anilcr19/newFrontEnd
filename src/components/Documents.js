@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import {toast,ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Letter = () => {
+const Documents = () => {
 
       var documents={
 
@@ -117,7 +117,7 @@ const openInNewTab = url => {
 
              document.getElementById("urll").style.display='block';
 
-             document.getElementById("resurl").href=urlresume;
+             document.getElementById("resumeurl").value=urlresume;
 
              document.getElementById("markurl").value=urlmarksheets;
 
@@ -135,36 +135,28 @@ const openInNewTab = url => {
     justifyContent: "center"
   };
 
-  const printDocuments=()=>{
-    console.log(urlresume);
-    console.log(urlmarksheets); 
-  }
-
   return (
     
     authid==3?
     <div>
       <Navbar/>
-      <p style={{textAlign:"center",color:"red",fontSize:"20px"}}>Enter the candidate's name whose files need to be fetched</p>
+      <p style={{textAlign:"center",color:"Black",fontSize:"23px"}}>Enter the candidate's name whose files need to be fetched</p>
     <div >
        <div style={mystyle}>
-       <input type="email" onChange={(e)=>{setEmployee (e.target.value);
+       <input type="email" size="30" className="btn btn-outline-secondary" onChange={(e)=>{setEmployee (e.target.value);
 
         document.getElementById("urll").style.display='none';
         
       }}></input>
        <button type="submit" onClick={viewDocuments} className="btn btn-primary" style={{marginLeft:10}}>submit</button>
        </div>
-       <div style={mystyle}>
-          <button type="submit" onClick={printDocuments} className="btn btn-primary" style={{marginLeft:10}}>view Documents</button>
-       </div>
+       
        
     </div>
 
      <center><div id="urll" style={{  display:'none'  }} >
-       <a href=""  target="_blank" id="resurl"   > Resume </a> <br></br>
-         
-        <Button onClick={ e=> openInNewTab(e.target.value)  }  value="" id="markurl" > marksheets</Button>
+        <Button onClick={ e=> openInNewTab(e.target.value)  }  value="" id="resumeurl" className="btn btn-success" style={{marginRight:"10px" ,marginTop:"30px"}}>Resume</Button> 
+        <Button onClick={ e=> openInNewTab(e.target.value)  }  value="" id="markurl" className="btn btn-success" style={{marginLeft:"10px" ,marginTop:"30px"}}> marksheets</Button>
 
       </div></center>
 
@@ -230,4 +222,4 @@ const openInNewTab = url => {
   )
 }
 
-export default Letter
+export default Documents
